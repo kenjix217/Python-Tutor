@@ -1,126 +1,110 @@
-# Python AI Tutor — Web-First Learning Platform
+# Python Learner v2
 
-A web-based AI-assisted learning platform that teaches Python from complete beginner to professional level.
+A modern AI-native interactive Python learning platform built with Next.js 15, TypeScript, and Tailwind CSS.
 
-**Learn Python entirely from your web browser — no installation required.**
+## Project Status: 🚧 Implementation Phase
 
----
+This is the **v2 rewrite** of the Python AI Tutor platform. We're transitioning from a vanilla HTML/CSS/JS architecture to a full-stack Next.js application.
 
-## 🎯 Project Goals
+### Key Improvements in v2
 
-- Teach Python to absolute beginners with zero coding experience
-- Provide interactive, hands-on learning with immediate feedback
-- Use AI as a tutor that guides, not solves (Configurable via Settings)
-- Make learning accessible through voice narration and clear explanations
-- Track progress and mastery across sessions
+| Aspect | v1 (Legacy) | v2 (Current) |
+|--------|-------------|--------------|
+| Framework | Vanilla JS | Next.js 15 + TypeScript |
+| Styling | Custom CSS | Tailwind CSS 4 + shadcn/ui |
+| Data Storage | localStorage | Vercel Postgres + Drizzle ORM |
+| Authentication | None | NextAuth.js v5 (anonymous-first) |
+| AI Integration | BYO API key | Server-managed multi-provider |
+| Code Execution | Pyodide only | Hybrid: Pyodide + Piston API |
+| Lesson Format | Markdown | MDX with React components |
 
----
+## Architecture
 
-## 🚀 Features (v2.4.0)
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for complete system design.
 
-- **Complete Curriculum:** 22 Lessons taking you from "Hello World" to "Full-Stack Deployment".
-- **Browser-Based Execution:** Runs real Python 3.11 code entirely in your browser using Pyodide (WASM).
-- **AI Tutor:** Integrated AI chat assistant (requires your own API key) to guide learning.
-- **Library Support:** Practice with real libraries like `pandas`, `numpy`, `matplotlib`, and `sqlite3` directly in the browser.
-- **Reference Implementations:** Includes "Golden Source" examples for advanced topics (Web Apps, APIs, Automation).
-- **Zero Install:** Just open the website and start coding.
+See [AGENT.md](./AGENT.md) for development rules and coding standards.
 
----
+## Content Migration
 
-## 📚 Curriculum Overview
+The 23 lessons from v1 have been archived to `migration/v1-reference/lessons/` for migration to the new MDX format.
 
-### Beginner Level (Lessons 1-5)
-1. ✅ What is Programming?
-2. ✅ Variables and Data Types
-3. ✅ Input and Output
-4. ✅ Conditions (if/else)
-5. ✅ Loops (for and while)
+### Migration Status
 
-### Intermediate Level (Lessons 6-10)
-6. ✅ Functions
-7. ✅ Lists and Dictionaries
-8. ✅ File Handling
-9. ✅ Error Handling
-10. ✅ Introduction to OOP
+- [ ] Convert lesson-01.md → content/lessons/beginner/01-what-is-programming.mdx
+- [ ] Convert lesson-02.md → content/lessons/beginner/02-variables-and-types.mdx
+- [ ] ... (23 lessons total)
+- [ ] Extract homework validation rules to config/homework.json
+- [ ] Port AI provider config to config/ai-providers.json
+- [ ] Port feature flags to config/features.json
 
-### Advanced Level (Lessons 11-19)
-11. ✅ External Libraries
-12. ✅ Working with APIs
-13. ✅ Data Processing Basics
-14. ✅ Web Development with Flask
-15. ✅ Building Web Applications
-16. ✅ Building REST APIs
-17. ✅ Working with Databases (SQLite)
-18. ✅ Data Analysis
-19. ✅ Automation and Scripting
-
-### Professional Level (Lessons 20-22)
-20. ✅ Testing and Quality
-21. ✅ Deployment and Production
-22. ✅ Final Capstone Project
-
----
-
-## 🏗️ Project Structure
-
-```
-Python-Learner/
-├── frontend/                      # Web application
-│   ├── index.html                # Main entry point
-│   ├── css/                      # Application styles
-│   ├── js/                       # Application logic (App, Editor, AI Tutor)
-│   ├── lessons/                  # Curriculum Content (Markdown)
-│   └── lib/                      # Third-party libraries
-└── README.md                     # This file
-```
-
----
-
-## 🚀 Getting Started
+## Quick Start
 
 ### Prerequisites
 
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No installation required!
+- Node.js 20.x or later
+- npm or yarn
+- Git
 
-### Running Locally
+### Development Setup
 
-1. **Clone or navigate to the project:**
+1. **Clone the repository**
    ```bash
-   cd Python-Learner
+   git clone <repo-url>
+   cd python-learner-v2
    ```
 
-2. **Open the web app:**
-   - Simply open `frontend/index.html` in your browser.
-   - Or use a local server for best performance:
-     ```bash
-     cd frontend
-     python -m http.server 8000
-     ```
-   - Navigate to `http://localhost:8000`
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-3. **Start learning!**
-   - Go to the **Settings** tab to configure the AI Tutor (optional).
-   - Start with Lesson 1!
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   # Edit .env.local with your API keys
+   ```
 
----
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-## 🛠️ Technology Stack
+5. **Open in browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-- **Frontend:** HTML5, CSS3, JavaScript ES6
-- **Python Runtime:** Pyodide (WebAssembly)
-- **Editor:** Monaco Editor (VS Code in browser)
-- **Markdown:** Marked.js
-- **AI:** OpenRouter/OpenAI API integration
+## Project Structure
 
----
+```
+python-learner-v2/
+├── config/              # JSON configuration files (ai-providers.json, lessons.json, etc.)
+├── content/             # MDX lesson content
+│   └── lessons/         # Lesson files organized by level
+├── migration/           # v1 content for migration
+│   └── v1-reference/
+│       ├── lessons/       # Original 23 lesson markdown files
+│       └── golden_source_solutions.tar.gz
+├── public/              # Static assets
+├── src/                 # Application source code
+│   ├── app/             # Next.js App Router
+│   ├── components/        # React components
+│   ├── lib/               # Business logic and utilities
+│   ├── stores/            # Zustand state stores
+│   ├── hooks/             # Custom React hooks
+│   └── types/             # TypeScript type definitions
+├── AGENT.md             # Development rules
+├── ARCHITECTURE.md      # System design documentation
+└── README.md            # This file
+```
 
-## 🔒 Privacy & Data
+## Documentation
 
-- All progress is stored locally in your browser (`localStorage`).
-- Your API keys (for AI Tutor) are stored locally and never sent to our servers.
-- No personal data collection.
+- [ARCHITECTURE.md](./ARCHITECTURE.md) - System design, data flows, API contracts
+- [AGENT.md](./AGENT.md) - Development rules, coding standards, constraints
 
----
+## Contributing
 
-**Built with OpenClaw** — Empowering independent learning.
+Please read [AGENT.md](./AGENT.md) before contributing. All code must follow the established patterns and constraints.
+
+## License
+
+MIT

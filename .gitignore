@@ -1,28 +1,47 @@
-# Private & System Files
-*.md
-*.MD
-!README.md
-!frontend/lessons/*.md
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# Architecture and System definitions (Explicit ignore for safety)
-Architecture.MD
-ARCHITECTURE.MD
-SYSTEM.md
-REQUIREMENTS.MD
-CODING_STANDARDS.md
-FREE_TOOLS_AND_LICENSING.md
-BUSINESS_MODEL_EVOLUTION.md
-CHANGELOG.md
+# Testing
+coverage/
 
-# Private Solutions
-golden_source/
+# Next.js
+.next/
+out/
 
-# Environment & Build
-venv/
-__pycache__/
-.env
+# Production
+build/
+
+# Misc
 .DS_Store
-*.log
-backend/
-Recording*.mp4
-START_WITH_AI.bat
+*.pem
+Thumbs.db
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
