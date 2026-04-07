@@ -1,0 +1,19 @@
+# Ignore unnecessary files for Vercel deployment
+.git
+.gitignore
+node_modules
+__pycache__
+*.pyc
+venv/
+env/
+virtualenv/
+*.db
+*.sqlite
+golden_source_solutions.tar.gz
+Architecture.MD.txt
+START_SERVER.bat
+docs/
+*.DS_Store
+Thumbs.db
+backend/__pycache__/
+backend/*.pyc
