@@ -1,0 +1,114 @@
+{
+  "01-what-is-programming": {
+    "title": "Display Three Sentences",
+    "description": "Display exactly three lines about yourself using print()",
+    "validationMode": "static",
+    "staticChecks": [
+      { "type": "functionUsage", "function": "print", "minCount": 3, "failMessage": "Use at least 3 print() statements" },
+      { "type": "codeLineCount", "min": 3, "failMessage": "Write at least 3 lines of code" }
+    ],
+    "executionChecks": [],
+    "aiReviewEnabled": true,
+    "hints": [
+      "Each print() statement outputs one line. You need at least three.",
+      "Make sure your text is inside quotes: print(\"your text here\")",
+      "Try writing about your name, a hobby, and something you want to learn."
+    ],
+    "maxHints": 3
+  },
+  "02-variables-and-types": {
+    "title": "Five Variables About Yourself",
+    "description": "Create at least 5 variables of different types and print them all",
+    "validationMode": "static",
+    "staticChecks": [
+      { "type": "assignmentCount", "min": 5, "failMessage": "Create at least 5 variables" },
+      { "type": "functionUsage", "function": "print", "minCount": 5, "failMessage": "Print all 5 variables" }
+    ],
+    "executionChecks": [],
+    "aiReviewEnabled": true,
+    "hints": [
+      "A variable assignment looks like: name = \"Alex\"",
+      "Try using different types: strings (\"text\"), integers (25), floats (5.9), booleans (True)",
+      "Print each variable with a label: print(\"Name:\", name)"
+    ],
+    "maxHints": 3
+  },
+  "03-input-and-output": {
+    "title": "Three Questions Program",
+    "description": "Ask the user three questions, store answers, and display a summary",
+    "validationMode": "static",
+    "staticChecks": [
+      { "type": "functionUsage", "function": "input", "minCount": 3, "failMessage": "Ask at least 3 questions using input()" },
+      { "type": "patternMatch", "pattern": "\\w+\\s*=\\s*input\\(", "minCount": 3, "failMessage": "Store all 3 answers in variables" },
+      { "type": "functionUsage", "function": "print", "minCount": 1, "failMessage": "Display a summary using print()" }
+    ],
+    "executionChecks": [],
+    "aiReviewEnabled": true,
+    "hints": [
+      "Use input() to ask a question: name = input(\"What is your name? \")",
+      "Store each answer in a different variable",
+      "Combine answers in your summary using f-strings: print(f\"Hello {name}!\")"
+    ],
+    "maxHints": 3
+  },
+  "04-conditions": {
+    "title": "Movie Age Restriction Checker",
+    "description": "Check age and parental permission to determine if someone can watch a movie",
+    "validationMode": "static",
+    "staticChecks": [
+      { "type": "patternMatch", "pattern": "int\\(input\\(", "minCount": 1, "failMessage": "Get the user's age using int(input())" },
+      { "type": "keywordUsage", "keyword": "if", "minCount": 1, "failMessage": "Use if statements for conditions" },
+      { "type": "keywordUsage", "keyword": "else", "minCount": 1, "failMessage": "Use else for alternative paths" },
+      { "type": "keywordUsage", "keyword": "and", "minCount": 1, "failMessage": "Combine conditions with 'and'" }
+    ],
+    "executionChecks": [],
+    "aiReviewEnabled": true,
+    "hints": [
+      "Start by getting the age: age = int(input(\"How old are you? \"))",
+      "Ask about parental permission for younger viewers",
+      "Use 'and' to check multiple conditions: if age >= 13 and has_permission == \"yes\":"
+    ],
+    "maxHints": 3
+  },
+  "05-loops": {
+    "title": "Sum of Numbers 1 to 100",
+    "description": "Calculate the sum of all numbers from 1 to 100 using a loop",
+    "validationMode": "hybrid",
+    "staticChecks": [
+      { "type": "keywordUsage", "keyword": "for", "minCount": 1, "failMessage": "Use a for loop" },
+      { "type": "functionUsage", "function": "range", "minCount": 1, "failMessage": "Use range() to generate numbers" },
+      { "type": "patternMatch", "pattern": "\\+=|total\\s*=\\s*total\\s*\\+", "minCount": 1, "failMessage": "Accumulate a running total" }
+    ],
+    "executionChecks": [
+      { "type": "outputContains", "value": "5050", "failMessage": "The sum of 1-100 should be 5050" },
+      { "type": "noErrors" }
+    ],
+    "aiReviewEnabled": true,
+    "hints": [
+      "Start with a total variable: total = 0",
+      "Use range(1, 101) to get numbers from 1 to 100",
+      "Inside the loop, add each number to total: total += number"
+    ],
+    "maxHints": 3
+  },
+  "06-functions": {
+    "title": "Rectangle Area Calculator",
+    "description": "Create function to calculate rectangle areas",
+    "validationMode": "hybrid",
+    "staticChecks": [
+      { "type": "functionDefinition", "name": "rectangle_area", "failMessage": "Define rectangle_area function" },
+      { "type": "parameterCount", "function": "rectangle_area", "min": 2, "failMessage": "Function should take 2 parameters" },
+      { "type": "returnStatement", "inFunction": "rectangle_area", "failMessage": "Function should return the calculated area" }
+    ],
+    "executionChecks": [
+      { "type": "functionCalls", "function": "rectangle_area", "minCount": 3, "failMessage": "Call rectangle_area at least 3 times" }
+    ],
+    "aiReviewEnabled": true,
+    "hints": [
+      "Define function: def rectangle_area(width, height):",
+      "Return width * height",
+      "Call function: area = rectangle_area(5, 3)"
+    ],
+    "maxHints": 3
+  }
+}

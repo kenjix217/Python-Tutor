@@ -1,0 +1,22 @@
+{
+  "aiTutorChat": true,
+  "aiCodeReview": true,
+  "aiHints": true,
+  "aiLessonGeneration": false,
+  "aiVoice": true,
+  "adaptiveLearning": true,
+  "gamification": true,
+  "achievements": true,
+  "streaks": true,
+  "leaderboard": false,
+  "darkMode": true,
+  "voiceNarration": true,
+  "serverExecution": true,
+  "homeworkValidation": true,
+  "requireHomeworkToAdvance": true,
+  "anonymousMode": true,
+  "maxFreeAIRequestsPerDay": 50,
+  "showLessonEstimates": true,
+  "showSkillRadar": true,
+  "allowLessonSkip": false
+}

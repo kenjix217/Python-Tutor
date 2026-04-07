@@ -1,0 +1,44 @@
+{
+  "skillCategories": {
+    "fundamentals": {
+      "name": "Fundamentals",
+      "skills": ["concepts", "print", "variables", "types", "input", "output"]
+    },
+    "controlFlow": {
+      "name": "Control Flow",
+      "skills": ["conditions", "comparison", "logic", "for-loops", "while-loops", "iteration"]
+    },
+    "abstraction": {
+      "name": "Abstraction",
+      "skills": ["functions", "parameters", "return-values", "classes", "objects", "methods", "oop"]
+    },
+    "dataStructures": {
+      "name": "Data Structures",
+      "skills": ["lists", "dictionaries", "file-io", "context-managers", "csv"]
+    },
+    "errorHandling": {
+      "name": "Error Handling",
+      "skills": ["exceptions", "try-except", "debugging"]
+    },
+    "ecosystem": {
+      "name": "Ecosystem",
+      "skills": ["pip", "imports", "packages", "http", "json", "apis", "requests"]
+    },
+    "webDev": {
+      "name": "Web Development",
+      "skills": ["flask", "web-development", "routes", "templates", "forms", "web-apps", "rest-api", "crud"]
+    },
+    "professional": {
+      "name": "Professional",
+      "skills": ["sql", "sqlite", "databases", "orm", "pandas", "statistics", "visualization", "scripting", "file-ops", "automation", "unittest", "pytest", "tdd", "deployment", "venv", "cloud", "env-vars", "best-practices", "project-management", "portfolio"]
+    }
+  },
+  "adaptiveRules": {
+    "strongPerformanceThreshold": 0.8,
+    "weakPerformanceThreshold": 0.4,
+    "maxHintsBeforeReinforcement": 3,
+    "maxAttemptsBeforeReinforcement": 5,
+    "allowSkipAhead": true,
+    "skipRequiresScore": 0.9
+  }
+}

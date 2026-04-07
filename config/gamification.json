@@ -1,0 +1,39 @@
+{
+  "xp": {
+    "lessonComplete": 100,
+    "homeworkPass": 50,
+    "homeworkFirstTry": 25,
+    "dailyStreak": 10,
+    "codeReviewRequested": 5,
+    "achievementUnlock": 20
+  },
+  "levels": [
+    { "name": "Novice", "minXP": 0, "badge": "seedling" },
+    { "name": "Apprentice", "minXP": 300, "badge": "sprout" },
+    { "name": "Coder", "minXP": 800, "badge": "sapling" },
+    { "name": "Developer", "minXP": 1800, "badge": "tree" },
+    { "name": "Engineer", "minXP": 3500, "badge": "fire" },
+    { "name": "Architect", "minXP": 6000, "badge": "rocket" },
+    { "name": "Pythonista", "minXP": 9000, "badge": "trophy" }
+  ],
+  "achievements": [
+    { "id": "hello-world", "title": "Hello World!", "description": "Complete your first lesson", "condition": { "type": "lessonComplete", "lessonId": "01-what-is-programming" }, "xpBonus": 50 },
+    { "id": "first-code", "title": "First Code", "description": "Run your first Python program", "condition": { "type": "codeExecuted", "count": 1 }, "xpBonus": 25 },
+    { "id": "perfect-homework", "title": "Nailed It!", "description": "Pass homework on first try", "condition": { "type": "homeworkFirstTry", "count": 1 }, "xpBonus": 50 },
+    { "id": "five-streak", "title": "On Fire!", "description": "5-day learning streak", "condition": { "type": "streak", "days": 5 }, "xpBonus": 100 },
+    { "id": "seven-streak", "title": "Week Warrior", "description": "7-day learning streak", "condition": { "type": "streak", "days": 7 }, "xpBonus": 200 },
+    { "id": "thirty-streak", "title": "Monthly Master", "description": "30-day learning streak", "condition": { "type": "streak", "days": 30 }, "xpBonus": 500 },
+    { "id": "beginner-complete", "title": "Beginner Graduate", "description": "Complete all beginner lessons", "condition": { "type": "levelComplete", "level": "beginner" }, "xpBonus": 200 },
+    { "id": "intermediate-complete", "title": "Intermediate Graduate", "description": "Complete all intermediate lessons", "condition": { "type": "levelComplete", "level": "intermediate" }, "xpBonus": 300 },
+    { "id": "advanced-complete", "title": "Advanced Graduate", "description": "Complete all advanced lessons", "condition": { "type": "levelComplete", "level": "advanced" }, "xpBonus": 500 },
+    { "id": "expert-complete", "title": "Python Master", "description": "Complete all expert lessons", "condition": { "type": "levelComplete", "level": "expert" }, "xpBonus": 1000 },
+    { "id": "bug-squasher", "title": "Bug Squasher", "description": "Fix 10 code errors", "condition": { "type": "errorsFixed", "count": 10 }, "xpBonus": 100 },
+    { "id": "ai-explorer", "title": "AI Explorer", "description": "Have 20 conversations with AI tutor", "condition": { "type": "aiChats", "count": 20 }, "xpBonus": 100 },
+    { "id": "full-curriculum", "title": "Completionist", "description": "Complete all 23 lessons", "condition": { "type": "allLessonsComplete" }, "xpBonus": 2000 }
+  ],
+  "streaks": {
+    "resetHourUTC": 4,
+    "graceHours": 0,
+    "freezesPerMonth": 2
+  }
+}

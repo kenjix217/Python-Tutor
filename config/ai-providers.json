@@ -1,0 +1,111 @@
+{
+  "defaultProvider": "openai",
+  "fallbackOrder": ["openai", "anthropic", "openrouter"],
+  "providers": {
+    "openai": {
+      "enabled": true,
+      "baseUrl": "https://api.openai.com/v1",
+      "models": {
+        "chat": "gpt-4o-mini",
+        "review": "gpt-4o",
+        "tts": "tts-1",
+        "generate": "gpt-4o-mini"
+      },
+      "envKeyName": "OPENAI_API_KEY",
+      "maxTokens": {
+        "chat": 800,
+        "review": 1500,
+        "hint": 300,
+        "generate": 2000
+      },
+      "temperature": {
+        "chat": 0.7,
+        "review": 0.3,
+        "hint": 0.5,
+        "generate": 0.8
+      },
+      "rateLimits": {
+        "requestsPerMinute": 20,
+        "requestsPerDay": 200
+      }
+    },
+    "anthropic": {
+      "enabled": true,
+      "baseUrl": "https://api.anthropic.com/v1",
+      "models": {
+        "chat": "claude-3-5-haiku-20241022",
+        "review": "claude-3-5-sonnet-20241022",
+        "generate": "claude-3-5-haiku-20241022"
+      },
+      "envKeyName": "ANTHROPIC_API_KEY",
+      "maxTokens": {
+        "chat": 800,
+        "review": 1500,
+        "hint": 300,
+        "generate": 2000
+      },
+      "temperature": {
+        "chat": 0.7,
+        "review": 0.3,
+        "hint": 0.5,
+        "generate": 0.8
+      },
+      "rateLimits": {
+        "requestsPerMinute": 15,
+        "requestsPerDay": 150
+      }
+    },
+    "openrouter": {
+      "enabled": true,
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "models": {
+        "chat": "meta-llama/llama-3.2-3b-instruct:free",
+        "review": "meta-llama/llama-3.1-70b-instruct",
+        "generate": "meta-llama/llama-3.2-3b-instruct:free"
+      },
+      "envKeyName": "OPENROUTER_API_KEY",
+      "maxTokens": {
+        "chat": 800,
+        "review": 1500,
+        "hint": 300,
+        "generate": 2000
+      },
+      "temperature": {
+        "chat": 0.7,
+        "review": 0.3,
+        "hint": 0.5,
+        "generate": 0.8
+      },
+      "rateLimits": {
+        "requestsPerMinute": 30,
+        "requestsPerDay": 500
+      }
+    }
+  },
+  "tts": {
+    "defaultProvider": "openai",
+    "fallback": "browser",
+    "providers": {
+      "openai": {
+        "model": "tts-1",
+        "voice": "nova",
+        "envKeyName": "OPENAI_API_KEY"
+      },
+      "elevenlabs": {
+        "voiceId": "configurable-voice-id",
+        "envKeyName": "ELEVENLABS_API_KEY"
+      },
+      "browser": {
+        "rate": 1.0,
+        "pitch": 1.0,
+        "volume": 1.0
+      }
+    }
+  },
+  "codeExecution": {
+    "pistonUrl": "https://emkc.org/api/v2/piston",
+    "timeoutMs": 15000,
+    "maxOutputChars": 10000,
+    "pythonVersion": "3.11"
+  }
+}

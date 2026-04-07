@@ -1,0 +1,140 @@
+{
+  "levels": [
+    { "id": "beginner", "name": "Beginner", "description": "Python fundamentals", "color": "#10b981" },
+    { "id": "intermediate", "name": "Intermediate", "description": "Core programming skills", "color": "#3b82f6" },
+    { "id": "advanced", "name": "Advanced", "description": "Application building", "color": "#8b5cf6" },
+    { "id": "expert", "name": "Expert", "description": "Production skills", "color": "#f59e0b" }
+  ],
+  "lessons": [
+    {
+      "id": "01-what-is-programming",
+      "level": "beginner",
+      "number": 1,
+      "title": "What is Programming?",
+      "description": "Understand what programming is and why Python is a great first language.",
+      "file": "beginner/01-what-is-programming.mdx",
+      "prerequisites": [],
+      "skills": ["concepts", "print"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 20,
+      "xpReward": 100
+    },
+    {
+      "id": "02-variables-and-types",
+      "level": "beginner",
+      "number": 2,
+      "title": "Variables and Data Types",
+      "description": "Learn how to store and work with different types of data.",
+      "file": "beginner/02-variables-and-types.mdx",
+      "prerequisites": ["01-what-is-programming"],
+      "skills": ["variables", "types", "print"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 25,
+      "xpReward": 100
+    },
+    {
+      "id": "03-input-and-output",
+      "level": "beginner",
+      "number": 3,
+      "title": "Input and Output",
+      "description": "Discover how to get information from users and display results.",
+      "file": "beginner/03-input-and-output.mdx",
+      "prerequisites": ["02-variables-and-types"],
+      "skills": ["input", "output", "variables"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 25,
+      "xpReward": 100
+    },
+    {
+      "id": "04-conditions",
+      "level": "beginner",
+      "number": 4,
+      "title": "Conditions (if/else)",
+      "description": "Learn to make your programs make decisions.",
+      "file": "beginner/04-conditions.mdx",
+      "prerequisites": ["03-input-and-output"],
+      "skills": ["conditions", "comparison", "logic"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 30,
+      "xpReward": 120
+    },
+    {
+      "id": "05-loops",
+      "level": "beginner",
+      "number": 5,
+      "title": "Loops (for and while)",
+      "description": "Discover how to make your programs repeat actions.",
+      "file": "beginner/05-loops.mdx",
+      "prerequisites": ["04-conditions"],
+      "skills": ["for-loops", "while-loops", "iteration"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 30,
+      "xpReward": 120
+    },
+    {
+      "id": "06-functions",
+      "level": "intermediate",
+      "number": 6,
+      "title": "Functions",
+      "description": "Organize code into reusable functions.",
+      "file": "intermediate/06-functions.mdx",
+      "prerequisites": ["05-loops"],
+      "skills": ["functions", "parameters", "return-values"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 35,
+      "xpReward": 150
+    },
+    {
+      "id": "07-lists-and-dictionaries",
+      "level": "intermediate",
+      "number": 7,
+      "title": "Lists and Dictionaries",
+      "description": "Master working with collections of data.",
+      "file": "intermediate/07-lists-and-dictionaries.mdx",
+      "prerequisites": ["06-functions"],
+      "skills": ["lists", "dictionaries", "iteration"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 35,
+      "xpReward": 150
+    },
+    {
+      "id": "08-file-handling",
+      "level": "intermediate",
+      "number": 8,
+      "title": "File Handling",
+      "description": "Learn to read from and write to files.",
+      "file": "intermediate/08-file-handling.mdx",
+      "prerequisites": ["07-lists-and-dictionaries"],
+      "skills": ["file-io", "context-managers"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 30,
+      "xpReward": 150
+    },
+    {
+      "id": "09-error-handling",
+      "level": "intermediate",
+      "number": 9,
+      "title": "Error Handling",
+      "description": "Handle errors gracefully with try/except.",
+      "file": "intermediate/09-error-handling.mdx",
+      "prerequisites": ["08-file-handling"],
+      "skills": ["exceptions", "try-except", "debugging"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 30,
+      "xpReward": 150
+    },
+    {
+      "id": "10-intro-to-oop",
+      "level": "intermediate",
+      "number": 10,
+      "title": "Introduction to OOP",
+      "description": "Learn Object-Oriented Programming basics.",
+      "file": "intermediate/10-intro-to-oop.mdx",
+      "prerequisites": ["09-error-handling"],
+      "skills": ["classes", "objects", "methods", "oop"],
+      "executionMode": "pyodide",
+      "estimatedMinutes": 40,
+      "xpReward": 200
+    }
+  ]
+}
