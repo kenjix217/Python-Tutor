@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { loadPyodide, PyodideInterface } from "pyodide";
+
+// Type-only import for Pyodide
+interface PyodideInterface {
+  setStdout: (options: { batched: (text: string) => void }) => void;
+  setStderr: (options: { batched: (text: string) => void }) => void;
+  runPythonAsync: (code: string) => Promise<any>;
+}
 
 interface UsePyodideReturn {
   pyodide: PyodideInterface | null;
@@ -23,6 +29,9 @@ export function usePyodide(): UsePyodideReturn {
 
     async function initPyodide() {
       try {
+        // Dynamic import to avoid SSR issues
+        const { loadPyodide } = await import("pyodide");
+        
         const instance = await loadPyodide({
           indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.0/full/",
         });
