@@ -1,40 +1,20 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { CodeEditor } from "@/components/editor/CodeEditor";
-import { OutputPanel } from "@/components/editor/OutputPanel";
-import { usePyodide } from "@/hooks/usePyodide";
 
 export default function PracticePage() {
   const [code, setCode] = useState<string>(DEFAULT_CODE);
   const [output, setOutput] = useState<string>("");
-  const [error, setError] = useState<string>("");
-  const [isRunning, setIsRunning] = useState(false);
-  
-  const { isReady, isLoading, runCode } = usePyodide();
 
-  const handleRun = useCallback(async () => {
-    if (!isReady) return;
-    
-    setIsRunning(true);
+  const handleRun = () => {
+    setOutput("Python execution coming soon! 🐍\\n\\nThis feature is being prepared for deployment.");
+  };
+
+  const handleClear = () => {
     setOutput("");
-    setError("");
-
-    try {
-      const result = await runCode(code);
-      setOutput(result);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred");
-    } finally {
-      setIsRunning(false);
-    }
-  }, [code, isReady, runCode]);
-
-  const handleClear = useCallback(() => {
-    setOutput("");
-    setError("");
-  }, []);
+  };
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900">
@@ -77,15 +57,11 @@ export default function PracticePage() {
                 Code Editor
               </span>
               <div className="flex items-center gap-2">
-                {isLoading && (
-                  <span className="text-xs text-zinc-500">Loading Python...</span>
-                )}
                 <button
                   onClick={handleRun}
-                  disabled={!isReady || isRunning}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors"
                 >
-                  {isRunning ? "Running..." : "▶ Run Code"}
+                  ▶ Run Code
                 </button>
                 <button
                   onClick={handleClear}
@@ -111,11 +87,22 @@ export default function PracticePage() {
                 Output
               </span>
             </div>
-            <OutputPanel
-              output={output}
-              error={error}
-              isLoading={isRunning || isLoading}
-            />
+            <div className="h-[500px] overflow-auto p-4">
+              {output ? (
+                <div className="bg-zinc-900 rounded-lg p-4">
+                  <pre className="text-sm text-zinc-100 font-mono whitespace-pre-wrap">
+                    {output}
+                  </pre>
+                </div>
+              ) : (
+                <div className="h-full flex items-center justify-center text-zinc-400">
+                  <div className="text-center">
+                    <div className="text-4xl mb-2">⌨️</div>
+                    <p>Click "Run Code" to see output</p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </main>
