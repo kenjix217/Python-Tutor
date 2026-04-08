@@ -90,7 +90,7 @@
         "hint": "nvidia/moonshotai/kimi-k2.5",
         "generate": "nvidia/moonshotai/kimi-k2.5"
       },
-      "envKeyName": "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",
+      "envKeyName": "NVIDIA_NIM_API_KEY",
       "maxTokens": {
         "chat": 1000,
         "review": 3000,
