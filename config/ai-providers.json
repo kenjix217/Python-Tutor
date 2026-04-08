@@ -1,6 +1,6 @@
 {
-  "defaultProvider": "openai",
-  "fallbackOrder": ["openai", "anthropic", "openrouter"],
+  "defaultProvider": "nvidia-nim",
+  "fallbackOrder": ["nvidia-nim", "openai", "anthropic", "openrouter"],
   "providers": {
     "openai": {
       "enabled": true,
@@ -79,6 +79,33 @@
       "rateLimits": {
         "requestsPerMinute": 30,
         "requestsPerDay": 500
+      }
+    },
+    "nvidia-nim": {
+      "enabled": true,
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "models": {
+        "chat": "nvidia/moonshotai/kimi-k2.5",
+        "review": "nvidia/moonshotai/kimi-k2.5",
+        "hint": "nvidia/moonshotai/kimi-k2.5",
+        "generate": "nvidia/moonshotai/kimi-k2.5"
+      },
+      "envKeyName": "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",
+      "maxTokens": {
+        "chat": 1000,
+        "review": 3000,
+        "hint": 500,
+        "generate": 5000
+      },
+      "temperature": {
+        "chat": 0.7,
+        "review": 0.3,
+        "hint": 0.5,
+        "generate": 0.8
+      },
+      "rateLimits": {
+        "requestsPerMinute": 50,
+        "requestsPerDay": 1000
       }
     }
   },
